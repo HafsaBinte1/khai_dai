@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from menu.models import FoodItems
 from category.models import Category
+from django.views.generic import TemplateView
 
 def home(request, brand_slug=None):
     data = FoodItems.objects.all()
@@ -12,3 +13,26 @@ def home(request, brand_slug=None):
     brands = Category.objects.all()
 
     return render(request, 'home.html', {'data': data, 'brands': brands, 'specials': specials})
+
+
+
+
+class AboutViewSet(TemplateView):
+    template_name = "about.html"
+
+class ServiceViewSet(TemplateView):
+    template_name = "service.html"
+    
+class TeamViewSet(TemplateView):
+    template_name = "team.html"
+
+class TestimonialViewSet(TemplateView):
+    template_name = "testimonial.html"
+    
+class ContactViewSet(TemplateView):
+    template_name = "contact.html"
+
+class MenuViewSet(TemplateView):
+    template_name = "menu.html"
+class BookingViewSet(TemplateView):
+    template_name = "booking.html"
